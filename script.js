@@ -1,30 +1,27 @@
-
 window.addEventListener('DOMContentLoaded', function () {
   var messageContainer = document.getElementById('message-container');
   var messageInput = document.getElementById('message-input');
   var sendButton = document.getElementById('send-button');
 
   sendButton.addEventListener('click', function () {
-    sendMessage();
-  });
-
-  messageInput.addEventListener('keydown', function (event) {
-    if (event.keyCode === 13) {
-      event.preventDefault();
-      sendMessage();
+    var message = messageInput.value;
+    if (message.trim() !== '') {
+      sendMessage(message);
+      messageInput.value = '';
     }
   });
 
   function sendMessage(message) {
     var newMessage = document.createElement('div');
-    newMessage.className = 'message';
+    newMessage.className = 'message sent';
     newMessage.textContent = message;
     messageContainer.appendChild(newMessage);
-    scrollToBottom()
+    scrollToBottom();
 
     // Send message to your REST API for processing
     // You can use fetch() or any other AJAX library to make the API request
     // Example:
+
     fetch("http://127.0.0.1:5000/api/v1/generate", {
       method: 'POST',
       headers: {
@@ -66,30 +63,35 @@ window.addEventListener('DOMContentLoaded', function () {
       .then(function (data) {
         // Process the response data from your REST API
         // Update the message container with the API response
-        addReceivedMessage(data);
+        addResponseMessage(data.results[0].text);
         scrollToBottom();
       })
       .catch(function (error) {
         console.error('Error:', error);
       });
+
   }
 
-
-  function addSentMessage(message) {
-    var newMessage = document.createElement('div');
-    newMessage.className = 'message sent';
-    newMessage.textContent = message;
-    messageContainer.appendChild(newMessage);
-  }
-
-  function addReceivedMessage(message) {
+  function addResponseMessage(message) {
     var newMessage = document.createElement('div');
     newMessage.className = 'message received';
     newMessage.textContent = message;
     messageContainer.appendChild(newMessage);
+    scrollToBottom();
   }
 
   function scrollToBottom() {
     messageContainer.scrollTop = messageContainer.scrollHeight;
   }
 });
+
+
+
+
+
+
+
+
+
+
+
