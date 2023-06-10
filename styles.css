@@ -165,98 +165,84 @@ body {
 
 #chat-window {
   width: 400px;
-  height: 500px;
-  border: 1px solid #ccc;
-  padding: 10px;
+  height: 600px;
+  border: none;
+  padding: 20px;
   margin: 0 auto;
-  background-color: #f4f4f4;
+  background-color: #EFF2F7;
   font-family: Arial, sans-serif;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
 #message-container {
-  height: 400px;
-  overflow-y: scroll;
+  height: 500px;
+  overflow-y: auto;
+  border: 1px solid #AEB9D2;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #FFFFFF;
   margin-bottom: 10px;
 }
 
 .message {
-  padding: 5px 10px;
-  margin-bottom: 5px;
+  padding: 8px 12px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  line-height: 1.5;
+  max-width: 75%;
 }
 
 .sent {
-  background-color: #dcf8c6;
+  background-color: #DCF8C6;
   color: #000;
-  border-radius: 5px;
-  text-align: right;
+  float: right;
+  clear: both;
 }
 
 .received {
-  background-color: #fff;
+  background-color: #E8E8E8;
   color: #000;
-  border-radius: 5px;
-  text-align: left;
+  float: left;
+  clear: both;
 }
 
 #input-container {
   display: flex;
   align-items: center;
+  border: 1px solid #AEB9D2;
+  border-radius: 10px;
+  padding: 5px;
+  background-color: #FFFFFF;
 }
 
 #message-input {
   flex: 1;
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  margin-right: 5px;
+  padding: 8px;
+  border: none;
+  font-size: 16px;
 }
 
 #send-button {
-  padding: 5px 10px;
-  background-color: #0066cc;
+  padding: 5px 15px;
+  background-color: #1A54E9;
   color: #fff;
   border: none;
-  border-radius: 3px;
+  border-radius: 5px;
   cursor: pointer;
+  font-size: 16px;
+  margin-left: 5px;
 }
 
 #send-button:hover {
-  background-color: #004a99;
+  background-color: #1543B4;
 }
 
-/* AOL Instant Messenger specific styles */
-#chat-window {
-  border: none;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
-}
-
-.message {
-  padding: 8px 12px;
-}
-
-.sent {
-  background-color: #eaf6fd;
-  color: #0055a5;
-}
-
-.received {
-  background-color: #f2f2f2;
-  color: #000;
-}
-
-#message-input {
-  border-radius: 20px;
-  padding: 8px 12px;
-  font-size: 14px;
-}
-
-#send-button {
-  border-radius: 20px;
-  font-size: 14px;
-  font-weight: bold;
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
 }

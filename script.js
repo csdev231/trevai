@@ -77,6 +77,11 @@ window.addEventListener('DOMContentLoaded', function () {
     newMessage.className = 'message received';
     newMessage.textContent = message;
     messageContainer.appendChild(newMessage);
+
+    var clearfix = document.createElement('div');
+    clearfix.className = 'clearfix';
+    messageContainer.appendChild(clearfix);  
+
     scrollToBottom();
   }
 
